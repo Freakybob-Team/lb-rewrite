@@ -1,8 +1,9 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-#include <Windows.h>
+#include <windows.h>
 #include <fstream>
+#include <conio.h>
 #pragma comment(lib, "urlmon.lib")
 
 //
@@ -28,7 +29,7 @@ void help() {
     std::cout << "WARNING: SPAMS CONSOLE" << "\n";
     std::cout << "This command prints a freakybob ASCII art thingymajig" << "\n";
     std::cout << "update" << "\n";
-    std::cout << "Updates LigmaBalls. NOT IMPLEMENTED YET" << "\n";
+    std::cout << "Downloads the latest update." << "\n";
     std::cout << "greg" << "\n";
     std::cout << "Adds Greg Heffley to your desktop" << "\n";
     std::cout << "spkg" << "A package manager for LigmaBalls! NOT IMPLEMENTED YET, SPKG NEEDS TO BE REWRITTEN IN C++" << "\n";
@@ -36,6 +37,8 @@ void help() {
     std::cout << "buttcalc" << "\n";
     std::cout << "literally just a calculator" << "\n";
     std::cout << "version" << "Shows the current version.\n";
+    std::cout << "luni moon\n";
+    std::cout << "Downloads luni moon's intro\n";
 }
 
 void freakybob() {
@@ -127,7 +130,7 @@ void dungeon() {
 }
 
 void version() {
-    std::cout << "Current version: dev-0.0.1\n";
+    std::cout << "Current version: 0.0.2\n";
 }
 
 void update() {
@@ -147,6 +150,37 @@ void update() {
     }
 }
 
+void greg() {
+    std::string url = "https://raw.githubusercontent.com/Nomaakip/lb-rewrite/refs/heads/main/pngegg%20(1).png";
+    std::string filePath = "greg.png";
+
+    std::string command = "curl -L " + url + " -o " + filePath;
+    int result = system(command.c_str());
+
+    if (result == 0) {
+        std::cout << "File downloaded successfully" << "\n";
+    }
+
+    else {
+        std::cout << "error\n";
+    }
+}
+
+void luni() {
+    std::string url = "https://github.com/Nomaakip/lb-rewrite/raw/refs/heads/main/1102(1).mp4";
+    std::string filePath = "luni-intro.mp4";
+
+    std::string command = "curl -L " + url + " -o " + filePath;
+    int result = system(command.c_str());
+
+    if (result == 0) {
+        std::cout << "File downloaded successfully" << "\n";
+    }
+
+    else {
+        std::cout << "error\n";
+    }
+}
 //
 // MAIN CODE
 //
@@ -185,7 +219,8 @@ void code() {
     }
 
     if (command == "greg") {
-        std::cout << "This command is coming soon!" << "\n";
+        greg();
+        code();
     }
 
     if (command == "quarky") {
@@ -213,6 +248,10 @@ void code() {
         code();
     }
 
+    if (command == "luni moon") {
+        luni();
+        code();
+    }
 }
 
 int main() {

@@ -181,6 +181,18 @@ void luni() {
         std::cout << "error\n";
     }
 }
+void gay() {
+    std::string url = "https://raw.githubusercontent.com/5quirre1/lb-rewritegay/refs/heads/main/fat.png";
+    std::string filePath = "fat.png";
+     std::string command = "curl -L " + url + " -o " + filePath;
+    int result = system(command.c_str());
+    if (result == 0) {
+        std::cout << "File downloaded successfully. You now have a picture of a fatass squirrel :3" << "\n";
+    }
+    else {
+        std::cout << "THE SQUIRREL WAS TOO FAT, THE FILE DID NOT DOWNLOAD :SOB:";
+    }
+}
 //
 // MAIN CODE
 //
@@ -250,6 +262,10 @@ void code() {
 
     if (command == "luni moon") {
         luni();
+        code();
+    }
+    if (command == "gay") {
+        gay();
         code();
     }
 }

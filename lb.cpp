@@ -39,6 +39,8 @@ void help() {
     std::cout << "version" << "Shows the current version.\n";
     std::cout << "luni moon\n";
     std::cout << "Downloads luni moon's intro\n";
+    std::cout << "gay\n";
+    std::cout << "Downloads a fucking fatass squirrel";
 }
 
 void freakybob() {

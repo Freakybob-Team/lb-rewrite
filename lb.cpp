@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <fstream>
 #include <conio.h>
+#include <shellapi.h>
 #pragma comment(lib, "urlmon.lib")
 
 //
@@ -11,11 +12,11 @@
 //
 
 void cls() {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }
 
 void help() {
@@ -40,7 +41,10 @@ void help() {
     std::cout << "luni moon\n";
     std::cout << "Downloads luni moon's intro\n";
     std::cout << "gay\n";
-    std::cout << "Downloads a fucking fatass squirrel";
+    std::cout << "Downloads a fucking fatass squirrel\n";
+    std::cout << "freakybob.site\n";
+    std::cout << "Goes to freakybob.site\n";
+
 }
 
 void freakybob() {
@@ -63,10 +67,12 @@ void freakybob() {
         if (fb.is_open()) {
             std::cout << fb.rdbuf();
             fb.close();
-        } else {
+        }
+        else {
             std::cerr << "error" << "\n";
         }
-    } else {
+    }
+    else {
         std::cerr << "error" << "\n";
     }
 }
@@ -121,7 +127,8 @@ void buttcalc() { // someone needs to fix this, its kinda buggy
         if (n2 != 0) {
             double quotient = static_cast<double>(n1) / n2;
             std::cout << quotient << "\n";
-        } else {
+        }
+        else {
             std::cerr << "Error: Division by zero is not allowed!" << "\n";
         }
     }
@@ -132,13 +139,13 @@ void dungeon() {
 }
 
 void version() {
-    std::cout << "Current version: 0.0.2\n";
+    std::cout << "Current version: 0.0.5\n";
 }
 
 void update() {
 
     std::string url = "https://github.com/Nomaakip/lb-rewrite/releases/download/prerelease/lb.exe";
-    std::string filePath = "freakybob.exe";
+    std::string filePath = "lb.exe";
 
     std::string command = "curl -L " + url + " -o " + filePath;
     int result = system(command.c_str());
@@ -186,7 +193,7 @@ void luni() {
 void gay() {
     std::string url = "https://raw.githubusercontent.com/5quirre1/lb-rewritegay/refs/heads/main/fat.png";
     std::string filePath = "fat.png";
-     std::string command = "curl -L " + url + " -o " + filePath;
+    std::string command = "curl -L " + url + " -o " + filePath;
     int result = system(command.c_str());
     if (result == 0) {
         std::cout << "File downloaded successfully. You now have a picture of a fatass squirrel :3" << "\n";
@@ -195,6 +202,17 @@ void gay() {
         std::cout << "THE SQUIRREL WAS TOO FAT, THE FILE DID NOT DOWNLOAD :SOB:";
     }
 }
+
+void freakybobsite(std::string word) {
+    std::string URL;
+    std::string URL2 = "dummy";
+    URL2 = URL + word;
+    std::cout << "Going to freakybob.site...\n";
+
+    ShellExecuteA(NULL, "open", URL2.c_str(), NULL, NULL, SW_SHOWNORMAL);
+}
+
+
 //
 // MAIN CODE
 //
@@ -268,6 +286,11 @@ void code() {
     }
     if (command == "gay") {
         gay();
+        code();
+    }
+
+    if (command == "freakybob.site") {
+        freakybobsite("www.freakybob.site");
         code();
     }
 }

@@ -195,6 +195,9 @@ void gay() {
         std::cout << "THE SQUIRREL WAS TOO FAT, THE FILE DID NOT DOWNLOAD :SOB:";
     }
 }
+void skibidi() {
+std::cout << "peak\n";
+}
 //
 // MAIN CODE
 //
@@ -270,6 +273,10 @@ void code() {
         gay();
         code();
     }
+    if (command == "Skibidi" || command == "skibidi") {
+        skibidi();
+        code();
+}
 }
 
 int main() {

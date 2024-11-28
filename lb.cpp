@@ -10,7 +10,7 @@
 //
 // COMMANDS
 //
-
+void code();
 void cls() {
 #ifdef _WIN32
     system("cls");
@@ -99,41 +99,44 @@ void thiscommanddoesnotexist() {
 }
 
 void buttcalc() { // someone needs to fix this, its kinda buggy
-    std::string num1, num2, sign;
-
-    std::cout << "First number: ";
+    std::string operation;
+    double num1;
+    double num2;
+    std::cout << "What do you want to do? (*, /, +, -):\n";
+    std::cin >> operation;
+    std::cout << "Put the first number:\n";
     std::cin >> num1;
-    std::cout << "Second number: ";
+
+    if (operation == "*") {
+    std::cout << "Put the second number:\n";
     std::cin >> num2;
-    std::cout << "Enter the operation thingy (ex: Addition): ";
-    std::cin >> sign;
+    double answerM = num1 * num2;
+    std::cout << "Answer: " << answerM << "\n";
+    code();
 
-    int n1 = std::stoi(num1);
-    int n2 = std::stoi(num2);
-
-    if (sign == "Addition") {
-        int sum = n1 + n2;
-        std::cout << sum << "\n";
-    }
-    else if (sign == "Multiplication") {
-        int product = n1 * n2;
-        std::cout << product << "\n";
-    }
-    else if (sign == "Subtraction") {
-        int difference = n1 - n2;
-        std::cout << difference << "\n";
-    }
-    else if (sign == "Division") {
-        if (n2 != 0) {
-            double quotient = static_cast<double>(n1) / n2;
-            std::cout << quotient << "\n";
-        }
-        else {
-            std::cerr << "Error: Division by zero is not allowed!" << "\n";
-        }
+    } else if (operation == "/") {
+    std::cout << "Put the second number:\n";
+    std::cin >> num2;
+    double answerD = num1 / num2;
+    std::cout << "Answer: " << answerD << "\n";
+    code();
+    } else if (operation == "+") {
+    std::cout << "Put the second number:\n";
+    std::cin >> num2;
+    double answerA = num1 + num2;
+    std::cout << "Answer: " << answerA << "\n";
+    code();
+    } else if (operation == "-") {
+        std::cout << "Put the second number:\n";
+    std::cin >> num2;
+    double answerS = num1 - num2;
+    std::cout << "Answer: " << answerS << "\n";
+    code();
+    } else {
+        std::cout << "Invalid operation\n";
+        buttcalc();
     }
 }
-
 void dungeon() {
     std::cout << "help freakybob has me in his dungeon send help NOW please" << "\n";
 }
@@ -294,7 +297,6 @@ void code() {
         code();
     }
 }
-
 int main() {
     code();
     return 0;
